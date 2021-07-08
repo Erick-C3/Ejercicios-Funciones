@@ -19,3 +19,66 @@
 	EXTRA: permitir alternar entre minuscula y mayuscula en un mismo
 			resultado de impresion
 */
+
+#include <stdio.h>
+
+
+
+
+const int CARACTER_A_MIN = 97;
+const int CARACTER_Z_MIN = 122;
+
+
+#define OPC_TODO_ABC 1
+#define OPC_RANGO_ABC 2
+#define OPC_IMPRIMIR_DESDE 3
+
+#define OPC_SALIR 0
+
+int main(){
+
+	int caracterCodigo = 0 ;
+	int opcUsuario = -1;
+
+	printf("Menu\n");
+	printf("imprimir todo el abecedario - 1\n");
+	printf("imprimir un rango especifico - 2\n");
+	printf("imprimir desde un caracter especifico - 3\n");
+	printf("Salir - 0\n");
+	scanf("%i", &opcUsuario);
+
+	switch(opcUsuario){
+		case OPC_TODO_ABC:
+			
+			for(caracterCodigo = CARACTER_A_MIN ; caracterCodigo <= CARACTER_Z_MIN ; caracterCodigo++){
+				printf("El caracater es %c \n", caracterCodigo);
+			}
+
+			break;
+		case OPC_RANGO_ABC:
+			// imprimir un rango especifico
+			printf("opc 2\n");
+			break;
+		case OPC_IMPRIMIR_DESDE:
+			// opc 3
+			printf("opc 3\n");
+			break;
+		case OPC_SALIR:
+			printf("Salir\n");
+			break;
+		default:
+			printf("Ingreso es invalido\n");
+	}
+
+
+	/*
+	caracterCodigo = CARACTER_A_MIN;
+
+	// imprime todo el abecedario
+	for(caracterCodigo ; caracterCodigo <= CARACTER_Z_MIN ; caracterCodigo++){
+		printf("El caracater es %c \n", caracterCodigo);
+	}
+	*/
+
+	return 0;
+}
