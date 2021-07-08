@@ -40,45 +40,47 @@ int main(){
 	int caracterCodigo = 0 ;
 	int opcUsuario = -1;
 
-	printf("Menu\n");
-	printf("imprimir todo el abecedario - 1\n");
-	printf("imprimir un rango especifico - 2\n");
-	printf("imprimir desde un caracter especifico - 3\n");
-	printf("Salir - 0\n");
-	scanf("%i", &opcUsuario);
+	int caracterIni = 0;
+	int caracterFinal = 0;
 
-	switch(opcUsuario){
-		case OPC_TODO_ABC:
-			
-			for(caracterCodigo = CARACTER_A_MIN ; caracterCodigo <= CARACTER_Z_MIN ; caracterCodigo++){
-				printf("El caracater es %c \n", caracterCodigo);
-			}
+	do{
+		printf("Menu\n");
+		printf("imprimir todo el abecedario - 1\n");
+		printf("imprimir un rango especifico - 2\n");
+		printf("imprimir desde un caracter especifico - 3\n");
+		printf("Salir - 0\n");
+		scanf("%i", &opcUsuario);
 
-			break;
-		case OPC_RANGO_ABC:
-			// imprimir un rango especifico
-			printf("opc 2\n");
-			break;
-		case OPC_IMPRIMIR_DESDE:
-			// opc 3
-			printf("opc 3\n");
-			break;
-		case OPC_SALIR:
-			printf("Salir\n");
-			break;
-		default:
-			printf("Ingreso es invalido\n");
-	}
-
-
-	/*
-	caracterCodigo = CARACTER_A_MIN;
-
-	// imprime todo el abecedario
-	for(caracterCodigo ; caracterCodigo <= CARACTER_Z_MIN ; caracterCodigo++){
-		printf("El caracater es %c \n", caracterCodigo);
-	}
-	*/
+		switch(opcUsuario){
+			case OPC_TODO_ABC:
+				
+				for(caracterCodigo = CARACTER_A_MIN ; caracterCodigo <= CARACTER_Z_MIN ; caracterCodigo++){
+					printf("El caracater es %c \n", caracterCodigo);
+				}
+				break;
+			case OPC_RANGO_ABC:
+				printf("Ingrese el codigo del caracter inicial\n");
+				scanf("%i", &caracterIni);
+				printf("Ingrese el codigo del caracter final\n");
+				scanf("%i", &caracterFinal);
+				for(caracterCodigo = caracterIni ; caracterCodigo <= caracterFinal ; caracterCodigo++){
+					printf("El caracter es %c \n", caracterCodigo);
+				}
+				break;
+			case OPC_IMPRIMIR_DESDE:
+				printf("Ingrese el codigo del caracter inicial\n");
+				scanf("%i", &caracterIni);
+				for(caracterCodigo = caracterIni ; caracterCodigo <= CARACTER_Z_MIN ; caracterCodigo++){
+					printf("El caracter es %c \n", caracterCodigo);
+				}
+				break;
+			case OPC_SALIR:
+				printf("Salir\n");
+				break;
+			default:
+				printf("Ingreso es invalido\n");
+		}
+	}while(opcUsuario != OPC_SALIR);
 
 	return 0;
 }
