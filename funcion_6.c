@@ -24,25 +24,50 @@
 */
 
 
-/*Descripcion:
- *Pre: 
- *Post:
-*/
-void mostrarPrecioFinal(costoFinal){
 
+/*CONSTANTES DE MENU TIENDA*/
+
+#define PASAR_CAJA 0
+#define OPC_CAMISA 1
+#define OPC_PANTALON 2
+#define OPC_MEDIAS 3
+
+/*CONSTANTES DE PRECIOS*/
+const int PRECIO_CAMISA = 685;
+const int PRECIO_PANTALON = 2690;
+const int PRECIO_MEDIAS = 370;
+const int PRECIO_NULO = 0;
+
+
+
+/*Descripcion: Muestra el precio final a pagar
+ *Pre: "precioPagar" contiene el precio final a pagar correspondiente a la suma total de precio
+ 		de los productos que agrego el cliente
+ *Post: Muestra el precio a pagar
+*/
+void mostrarPrecioFinal( int precioPagar){
+	printf("Precio final: $%i \n", precioPagar);
 }
 
 
-
 /*Descripcion: Seleccionar el precio a agregar dependiendo del producto elegido
- *Pre: "productoAgregado" debe corresponder a las opciones disponibles en esta funcion.
+ *Pre: "productoAgregado" debe corresponder a los casos disponibles en esta funcion.
  *Post: Devuelve el precio del producto elegido
 */
 int agregarPrecio(int productoAgregado){
+	int precio = PRECIO_NULO;
+	switch(productoAgregado){
+		case OPC_CAMISA:
+			precio = PRECIO_CAMISA;
+			break;
+		case OPC_PANTALON:
+			precio = PRECIO_PANTALON;
+			break;
+		case OPC_MEDIAS:
+			precio = PRECIO_MEDIAS;
+	}
 
-
-
-	return ;
+	return precio;
 }
 
 
@@ -52,7 +77,11 @@ int agregarPrecio(int productoAgregado){
  *Post: Muestra el menu de productos disponibles en la tienda
 */
 void menu(){
-
+	printf("Menu\n");
+	printf("- Camisa $685.0 [1]\n");
+	printf("- Pantalon $2690.0 [2]\n");
+	printf("- Medias $370.0 [3]\n");
+	printf("- Pasar caja [0]\n");
 }
 
 
@@ -66,7 +95,7 @@ void comenzarVenta(){
 	do{
 
 		menu();
-		scanf("%i", opcRecibida);
+		scanf("%i", &opcRecibida);
 		costoFinal += agregarPrecio(opcRecibida);
 
 	}while( opcRecibida != PASAR_CAJA);
